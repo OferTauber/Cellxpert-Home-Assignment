@@ -1,21 +1,23 @@
 import { makeAutoObservable } from 'mobx';
+import Char from './Char_type';
 
 export enum View {
   letter = 'letter',
-  conjuction = 'conjuction',
+  double = 'double',
+  home = '',
 }
 
-class LetterState {
-  letter: string;
+export class LetterState {
+  letter: Char;
   view: View;
 
-  constructor() {
+  constructor(letter: Char, view: View) {
     makeAutoObservable(this);
-    this.letter = '';
-    this.view = View.letter;
+    this.letter = letter;
+    this.view = view;
   }
 
-  setLetter(newLetter: string | null) {
+  setLetter(newLetter: Char | null) {
     this.letter = newLetter ? newLetter : '';
   }
 
@@ -24,4 +26,6 @@ class LetterState {
   }
 }
 
-export default LetterState;
+const letterState = new LetterState('a', View.letter);
+
+export default letterState;
