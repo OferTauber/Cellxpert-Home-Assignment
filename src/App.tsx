@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import words from 'an-array-of-english-words';
+import { useLetterState } from './utils/use_letters_state.hook';
+import { observer } from 'mobx-react-lite';
+import Nav from './components/Nav';
+import HomeView from './components/HomeView';
+import LetterView from './components/LetterView';
+import DoubleView from './components/DoubleView';
 
-function App() {
+const App = observer(() => {
+  const state = useLetterState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomeView />} /> // fallback
+          <Route path="/letter/" element={<LetterView />} />
+          <Route path="/double/" element={<DoubleView />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-}
+});
 
 export default App;
