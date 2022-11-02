@@ -4,7 +4,6 @@ import Char from './Char_type';
 export enum View {
   letter = 'letter',
   double = 'double',
-  home = '',
 }
 
 export class LetterState {

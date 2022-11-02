@@ -1,10 +1,13 @@
 import colors from './colors';
 import styled from '@emotion/styled';
 
+const CONTAINER_WIDTH = '1000px';
+const NAV_HEIGHT = '50px';
+
 export const NavBar = styled.nav`
   background-color: ${colors['dark-primary']};
   width: 100%;
-  height: 50px;
+  height: ${NAV_HEIGHT};
   color: ${colors.light};
 `;
 
@@ -17,7 +20,7 @@ export const Logo = styled.h1`
 `;
 
 export const NavContainer = styled.div`
-  width: 1000px;
+  width: ${CONTAINER_WIDTH};
   max-width: 100%;
   height: 100%;
   margin: auto;
@@ -27,9 +30,9 @@ export const NavContainer = styled.div`
   justify-content: space-between;
 `;
 export const BodyContainer = styled.div`
-  width: 1000px;
+  width: ${CONTAINER_WIDTH};
   max-width: 100vw;
-  height: 100%;
+  min-height: calc(100vh - ${NAV_HEIGHT});
   margin: auto;
   padding: 0 40px;
   display: flex;
