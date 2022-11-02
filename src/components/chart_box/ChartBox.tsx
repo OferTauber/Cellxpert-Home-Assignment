@@ -7,14 +7,12 @@ import colors from '../../style/colors';
 
 const ChartBox = observer(
   ({
-    letter,
     callback,
     massage,
     color,
   }: {
-    letter: Char;
     callback: (letter: Char) => number;
-    massage: any;
+    massage: [string, string];
     color: colors;
   }) => {
     const state = useLetterState();
@@ -25,7 +23,7 @@ const ChartBox = observer(
         <div className="box">
           <DoughnutChart color={color} numOfWords={numOfWords} />
           <div>
-            {massage[0]} {numOfWords} {massage[1]} {letter}
+            {massage[0]} {numOfWords} {massage[1]} "{state?.letter}""
           </div>
         </div>
       </Card>

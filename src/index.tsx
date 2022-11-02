@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { LetterStateProvider } from './utils/use_letters_state.hook';
 import 'semantic-ui-css/semantic.min.css';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

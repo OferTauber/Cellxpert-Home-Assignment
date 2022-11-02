@@ -13,9 +13,9 @@ const App = observer(() => {
         <Nav />
         <main>
           <Routes>
-            <Route path="/" element={<HomeView />} /> // fallback
             <Route path="/letter/" element={<LetterView />} />
             <Route path="/double/" element={<DoubleView />} />
+            <Route path="/" element={<HomeView />} /> {/* fallback */}
           </Routes>
         </main>
       </BrowserRouter>
