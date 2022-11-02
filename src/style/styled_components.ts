@@ -6,7 +6,6 @@ const PHONE = '450px';
 
 const CONTAINER_WIDTH = '1000px';
 const NAV_HEIGHT = '50px';
-
 const NAV_HEIGHT_S = '45px';
 
 export const NavBar = styled.nav`
@@ -51,13 +50,18 @@ export const NavContainer = styled.div`
 `;
 export const BodyContainer = styled.div`
   width: ${CONTAINER_WIDTH};
-  height: 100%;
+  height: calc(100vh - ${NAV_HEIGHT});
   width: 100%;
   margin: auto;
   padding: 0 40px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
+  @media (max-width: ${PHONE}) {
+    height: calc(100vh - ${NAV_HEIGHT_S});
+  }
 `;
 
 export const Lable = styled.div`
@@ -101,7 +105,6 @@ export const Frame = styled.div`
   width: 250px;
   display: flex;
   flex-direction: column;
-  margin: auto;
   align-items: center;
   background-color: ${colors['dark-secondary']};
   border-radius: 15px;
@@ -122,4 +125,20 @@ export const CharInput = styled.input`
   :focus {
     border: 3px solid ${colors['emphasis-primary']};
   }
+`;
+
+export const Hero = styled.div`
+  text-align: center;
+  color: ${colors['dark-primary']};
+  font-size: 1.6rem;
+  display: block;
+
+  @media (max-width: ${PHONE}) {
+    font-size: 1.3rem;
+  }
+`;
+
+export const HeroText = styled.p`
+  font-size: 0.8em;
+  text-align: justify;
 `;

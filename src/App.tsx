@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useLetterState } from './utils/use_letters_state.hook';
 import { observer } from 'mobx-react-lite';
 import Nav from './components/Nav';
 import HomeView from './components/HomeView';
