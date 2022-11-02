@@ -25,6 +25,6 @@ export class LetterState {
   }
 }
 
-const letterState = new LetterState('a', View.letter);
+const letterState = new LetterState('', View.letter);
 
 export default letterState;

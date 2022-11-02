@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { useLetterState } from '../utils/use_letters_state.hook';
 import Char from '../utils/Char_type';
 import { NavigateFunction } from 'react-router-dom';
+import { Frame, Button, CharInput } from '../style/styled_components';
 
 const SelectLetter = observer(
   ({
@@ -22,13 +23,13 @@ const SelectLetter = observer(
     };
 
     const isInputValid = (input: string): boolean => {
-      return input.toUpperCase() !== input.toLowerCase(); //* returns 'true' ONLY to letters
+      return input?.toUpperCase() !== input?.toLowerCase(); //* returns 'true' ONLY to letters
     };
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
       const value = e.target.value;
       const lastChar = value[value.length - 1];
-      setInputValue(lastChar);
+      setInputValue(lastChar || '');
       setInvalidInput(!isInputValid(lastChar));
     };
 
@@ -41,17 +42,26 @@ const SelectLetter = observer(
     };
 
     return (
-      <>
-        <label htmlFor="letter">Select a Letter!</label>
-        <input
-          type="text"
-          name="letter"
-          value={inputValue}
-          onChange={(e) => onInputChange(e)}
-        />
-        <button onClick={updateStateLetter}>Select</button> {/* disable */}
-        {invalidInput && <p>Invalid input!</p>}
-      </>
+      <Frame>
+        <label htmlFor="letter">
+          <h2>Pleas select a letter</h2>
+        </label>
+        <div>
+          <CharInput
+            type="text"
+            name="letter"
+            value={inputValue?.toUpperCase()}
+            onChange={(e) => onInputChange(e)}
+          />
+          <Button
+            disabled={invalidInput || inputValue === ''}
+            onClick={updateStateLetter}
+          >
+            Select
+          </Button>
+        </div>
+        {invalidInput ? <p>Invalid input!</p> : <br />}
+      </Frame>
     );
   }
 );
