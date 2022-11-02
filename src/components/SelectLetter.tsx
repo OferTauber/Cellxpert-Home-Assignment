@@ -36,7 +36,9 @@ const SelectLetter = observer(
     const updateStateLetter = (): void => {
       if (invalidInput) return;
 
-      state?.setLetter(convertVALIDATED_InputIntoChar(inputValue));
+      state?.setLetter(
+        convertVALIDATED_InputIntoChar(inputValue.toLowerCase())
+      );
 
       if (navigateFunction) navigateFunction('/' + state?.view);
     };
