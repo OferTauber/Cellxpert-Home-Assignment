@@ -50,10 +50,11 @@ export const NavContainer = styled.div`
 `;
 export const BodyContainer = styled.div`
   width: ${CONTAINER_WIDTH};
-  height: calc(100vh - ${NAV_HEIGHT});
+  min-height: calc(100vh - ${NAV_HEIGHT});
+  height: 100%;
   width: 100%;
   margin: auto;
-  padding: 0 40px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,6 +98,7 @@ export const Button = styled.button`
 `;
 
 export const FullHeigtDiv = styled.div`
+  height: fit-content;
   min-height: 100vh;
   width: 100vw;
 `;
@@ -111,6 +113,7 @@ export const Frame = styled.div`
   padding: 20px;
   box-shadow: 5px 10px 5px gray;
   color: ${colors.light};
+  margin: 20px;
 `;
 
 export const CharInput = styled.input`
@@ -141,4 +144,41 @@ export const Hero = styled.div`
 export const HeroText = styled.p`
   font-size: 0.8em;
   text-align: justify;
+`;
+
+export const ChartsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const Card = styled.div`
+  border: 1px solid gray;
+  width: 200px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 10px 8px 3px gray;
+  margin: 10px;
+  font-size: 1.2rem;
+  color: ${colors['dark-secondary']};
+  position: relative;
+
+  @media (max-width: ${TABLET}) {
+    width: 120px;
+    font-size: 1rem;
+  }
+`;
+
+export const HoverNum = styled.div`
+  position: relative;
+  font-size: 1.6rem;
+  top: -175px;
+  text-align: center;
+
+  @media (max-width: ${TABLET}) {
+    font-size: 1.1rem;
+    top: -160px;
+  }
 `;

@@ -23,13 +23,13 @@ const SelectLetter = observer(
     };
 
     const isInputValid = (input: string): boolean => {
-      return input.toUpperCase() !== input.toLowerCase(); //* returns 'true' ONLY to letters
+      return input?.toUpperCase() !== input?.toLowerCase(); //* returns 'true' ONLY to letters
     };
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
       const value = e.target.value;
       const lastChar = value[value.length - 1];
-      setInputValue(lastChar);
+      setInputValue(lastChar || '');
       setInvalidInput(!isInputValid(lastChar));
     };
 
@@ -50,7 +50,7 @@ const SelectLetter = observer(
           <CharInput
             type="text"
             name="letter"
-            value={inputValue.toUpperCase()}
+            value={inputValue?.toUpperCase()}
             onChange={(e) => onInputChange(e)}
           />
           <Button
