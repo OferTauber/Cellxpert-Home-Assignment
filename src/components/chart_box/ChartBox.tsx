@@ -20,11 +20,9 @@ const ChartBox = observer(
 
     return (
       <Card>
-        <div className="box">
-          <DoughnutChart color={color} numOfWords={numOfWords} />
-          <div>
-            {massage[0]} {numOfWords} {massage[1]} "{state?.letter}""
-          </div>
+        <DoughnutChart color={color} numOfWords={numOfWords} />
+        <div>
+          {massage[0]} {numOfWords} {massage[1]} "{state?.letter}""
         </div>
       </Card>
     );
